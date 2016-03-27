@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Player : MonoBehaviour {
+  public class Player : MonoBehaviour {
 
     float speed = 10f;
 
@@ -16,16 +16,14 @@ public class Player : MonoBehaviour {
 
     void Update()
     {
-        location += speed * Time.deltaTime;
+      location += speed * Time.deltaTime;
 
-        Vector3 position;
-        Quaternion rotation;
+      Vector3 position;
+      Quaternion rotation;
 
-        terrain.GetPlayerPositionAndOrientationAt(location, playerRotation, out position, out rotation);
+      terrain.GetPlayerPositionAndOrientationAt(location, playerRotation, out position, out rotation);
 
-        transform.position = position;
-        transform.rotation = rotation;
-
-
+      transform.position = position;
+      transform.rotation = rotation;
     }
-}
+  }
