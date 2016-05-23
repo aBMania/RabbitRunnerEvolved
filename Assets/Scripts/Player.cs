@@ -1,29 +1,33 @@
-﻿using UnityEngine;
+﻿using Application;
+using Application.Model.Terrain;
+using UnityEngine;
 
-  public class Player : MonoBehaviour {
+public class Player : RabbitApplicationElement {
 
     float speed = 10f;
 
-    private float location = 0;
+    private float _location = 0;
 
-    public TerrainModel terrain;
+    private RabbitTerrain RabbitTerrain;
+
+    public void Awake()
+    {
+        RabbitTerrain = App.Model.Terrain;
+    }
 
     [Range(0, 1)]
-    public float height;
+    public float Height;
 
     [Range(-1, 1)]
     private float playerRotation = 1;
 
     void Update()
     {
-      location += speed * Time.deltaTime;
+        _location += speed * Time.deltaTime;
 
-      Vector3 position;
-      Quaternion rotation;
+        Vector3 position;
+        Quaternion rotation;
 
-      terrain.GetPlayerPositionAndOrientationAt(location, playerRotation, out position, out rotation);
-
-      transform.position = position;
-      transform.rotation = rotation;
+        RabbitTerrain.GetPlayerPositionAndOrientationAt(_location, playerRotation, out position, out rotation);
     }
-  }
+}

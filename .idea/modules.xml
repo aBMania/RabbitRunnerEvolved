@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/CylinderGenerator.sln.iml" filepath="$PROJECT_DIR$/CylinderGenerator.sln.iml" />
       <module fileurl="file://$PROJECT_DIR$/RabbitRunnerEvolved.sln.iml" filepath="$PROJECT_DIR$/RabbitRunnerEvolved.sln.iml" />
     </modules>
   </component>
