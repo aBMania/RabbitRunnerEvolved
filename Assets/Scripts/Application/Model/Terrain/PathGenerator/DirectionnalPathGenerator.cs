@@ -1,7 +1,7 @@
 ﻿using Application.Model.Terrain.TerrainSegments;
 using UnityEngine;
 
-namespace Application.Service.PathGenerator
+namespace Application.Model.Terrain.PathGenerator
 {
     public class DirectionnalPathGenerator : RabbitApplicationElement, IPathGenerator
     {

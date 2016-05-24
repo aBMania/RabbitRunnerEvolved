@@ -1,6 +1,6 @@
 ﻿using Application.Model.Terrain.TerrainSegments;
 
-namespace Application.Service.PathGenerator
+namespace Application.Model.Terrain.PathGenerator
 {
     public interface IPathGenerator
     {

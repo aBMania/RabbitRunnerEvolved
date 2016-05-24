@@ -1,8 +1,8 @@
-﻿using Application.Model.Terrain.TerrainSegments;
-using Application.Service.PathGenerator;
+﻿using Application.Model.Terrain.PathGenerator;
+using Application.Model.Terrain.TerrainSegments;
 using UnityEngine;
 
-namespace Application.Service.TerrainGenerator
+namespace Application.Model.Terrain.TerrainGenerator
 {
     public class CylinderTerrainGenerator : RabbitApplicationElement, ITerrainGenerator
     {
@@ -26,9 +26,9 @@ namespace Application.Service.TerrainGenerator
 
         public IPathGenerator PathGenerator;
 
-        public void Start()
+        public void Awake()
         {
-            PathGenerator = App.Service.DirectionnalPathGenerator;
+            PathGenerator = App.Model.TerrainModel.PathGenerator;
         }
 
         public TerrainSegment GenerateNextTerrainSegment()

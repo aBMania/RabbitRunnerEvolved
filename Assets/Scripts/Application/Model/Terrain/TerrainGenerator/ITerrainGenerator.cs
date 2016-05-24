@@ -1,6 +1,6 @@
 ﻿using Application.Model.Terrain.TerrainSegments;
 
-namespace Application.Service.TerrainGenerator
+namespace Application.Model.Terrain.TerrainGenerator
 {
     public interface ITerrainGenerator
     {

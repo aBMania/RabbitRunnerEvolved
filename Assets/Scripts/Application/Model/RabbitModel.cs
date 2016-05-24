@@ -5,16 +5,14 @@ namespace Application.Model
 {
     public class RabbitModel : RabbitApplicationElement
     {
-        private TerrainModel _terrainModel;
-
-        public void Awake()
-        {
-            _terrainModel = GetComponent<TerrainModel>();
-        }
-
         public TerrainModel TerrainModel
         {
-            get { return _terrainModel; }
+            get { return GetComponentInChildren<TerrainModel>(); }
+        }
+
+        public Player.Player Player
+        {
+            get { return GetComponentInChildren<Player.Player>();  }
         }
     }
 }

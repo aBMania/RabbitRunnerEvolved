@@ -1,14 +1,24 @@
 ﻿using System.Collections.Generic;
 using Application.Controller.GameManager;
+using Application.Model.Terrain.PathGenerator;
+using Application.Model.Terrain.TerrainGenerator;
 using Application.Model.Terrain.TerrainSegments;
-using Application.Service.PathGenerator;
-using Application.Service.TerrainGenerator;
 using UnityEngine;
 
 namespace Application.Model.Terrain
 {
     public class TerrainModel : RabbitApplicationElement
     {
+        public IPathGenerator PathGenerator
+        {
+            get { return GetComponentInChildren<IPathGenerator>(); }
+        }
+
+        public ITerrainGenerator TerrainGenerator
+        {
+            get { return GetComponentInChildren<ITerrainGenerator>(); }
+        }
+
         private readonly IDictionary<int, TerrainSegment> _terrainSegments = new Dictionary<int, TerrainSegment>();
 
         private ITerrainGenerator _terrainGenerator;
@@ -16,12 +26,7 @@ namespace Application.Model.Terrain
 
         public void Awake()
         {
-
-        }
-
-        public void Start()
-        {
-            _terrainGenerator = App.Service.CylinderTerrainGenerator;
+            _terrainGenerator = TerrainGenerator;
             _gameManager = App.Controller.GameManager;
             _gameManager.OnGameStart += OnGameStart;
         }
