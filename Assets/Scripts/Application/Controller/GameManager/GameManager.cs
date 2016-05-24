@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Application.Controller.GameManager
+﻿namespace Application.Controller.GameManager
 {
     public class GameManager : RabbitApplicationElement
     {

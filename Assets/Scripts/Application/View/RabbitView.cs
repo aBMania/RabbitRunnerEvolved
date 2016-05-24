@@ -1,4 +1,6 @@
-﻿using Application.View.Terrain;
+﻿using Application.View.Camera;
+using Application.View.Player;
+using Application.View.Terrain;
 
 namespace Application.View
 {
@@ -8,5 +10,17 @@ namespace Application.View
         {
             get { return GetComponentInChildren<TerrainView>(); }
         }
+
+        public PlayerView Player
+        {
+            get { return GetComponentInChildren<PlayerView>(); }
+        }
+
+        public PlayerCamera PlayerCamera
+        {
+            get { return GetComponentInChildren<PlayerCamera>(); }
+        }
+
+
     }
 }

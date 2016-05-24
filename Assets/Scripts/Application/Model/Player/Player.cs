@@ -7,23 +7,19 @@ namespace Application.Model.Player
 {
     public class Player : RabbitApplicationElement {
 
-        [Range(0, 1)]
-        public float Height;
-
         public delegate void PlayerUpdated();
         public event PlayerUpdated OnPlayerUpdated;
 
         [ShowOnly, SerializeField]
-        private float _playerRotation = 0;
-
-        [ShowOnly, SerializeField]
         private float speed = 10f;
 
-        [ShowOnly, SerializeField]
-        private float _location;
+        [ShowOnly, SerializeField] private float _location;
 
         [ShowOnly, SerializeField]
         private Vector3 _position;
+
+        [SerializeField, Range(-180, 180)]
+        private float _angle;
 
         [ShowOnly, SerializeField]
         private Quaternion _rotation;
@@ -32,6 +28,7 @@ namespace Application.Model.Player
         public void Awake()
         {
             _terrainModel = App.Model.TerrainModel;
+            _location = App.View.PlayerCamera.Offset;
         }
 
         public void Update()
@@ -40,7 +37,7 @@ namespace Application.Model.Player
 
             try
             {
-                _terrainModel.GetPlayerPositionAndOrientationAt(_location, _playerRotation, out _position, out _rotation);
+                _terrainModel.GetPlayerPositionAndOrientationAt(_location, _angle, out _position, out _rotation);
             }
             catch (PlayerOutOfTerrainExeption e)
             {
@@ -79,6 +76,13 @@ namespace Application.Model.Player
         {
             get { return _terrainModel; }
             set { _terrainModel = value; }
+        }
+
+        public float Angle
+
+        {
+            get { return _angle; }
+            set { _angle = value; }
         }
     }
 }

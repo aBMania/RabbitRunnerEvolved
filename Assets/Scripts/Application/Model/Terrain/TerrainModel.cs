@@ -81,34 +81,22 @@ namespace Application.Model.Terrain
             GenerateNextSegment();
         }
 
-
-        public void GetPlayerPositionAndOrientationAt(float z, float k, out Vector3 position, out Quaternion orientation)
+        public void GetCameraPositionAndOrientationAt(float location, float angle, out Vector3 position, out Quaternion orientation)
         {
-            // Get the index of the previous and next segments of the player
-            // if player is at z: 6.2, we get segment #6 and #7
+            var flooredLocation = Mathf.FloorToInt(location);
+            var playerLocalRatio = location - flooredLocation;
+            var previousTerrainSegment = GetTerrainSegmentAt(flooredLocation);
 
-            var previousTerrainSegmentIndex = Mathf.FloorToInt(z);
-            var nextTerrainSegmentIndex = previousTerrainSegmentIndex + 1;
+            previousTerrainSegment.GetCameraPositionAndOrientationAt(playerLocalRatio, angle, out position, out orientation);
+        }
 
+        public void GetPlayerPositionAndOrientationAt(float location, float angle, out Vector3 position, out Quaternion orientation)
+        {
+            var flooredLocation = Mathf.FloorToInt(location);
+            var playerLocalRatio = location - flooredLocation;
+            var previousTerrainSegment = GetTerrainSegmentAt(flooredLocation);
 
-            // Local ratio of player position between the two segments
-            // if player is at z: 6.2, the ratio is 0.2
-
-            var playerLocalRatio = z - previousTerrainSegmentIndex;
-
-            // Get the terrainSegments Objects
-
-            var previousTerrainSegment = GetTerrainSegmentAt(previousTerrainSegmentIndex);
-            var nexTerrainSegment = GetTerrainSegmentAt(nextTerrainSegmentIndex);
-
-            Vector3 previousTerrainSegmentPosition, nexTerrainSegmentPosition;
-            Quaternion previousTerrainSegmentOrientation, nextTerrainSegmentOrientation;
-
-            previousTerrainSegment.GetPlayerPositionAt(k, out previousTerrainSegmentPosition, out previousTerrainSegmentOrientation);
-            nexTerrainSegment.GetPlayerPositionAt(k, out nexTerrainSegmentPosition, out nextTerrainSegmentOrientation);
-
-            position = Vector3.Slerp(previousTerrainSegmentPosition, nexTerrainSegmentPosition, playerLocalRatio);
-            orientation = Quaternion.Slerp(previousTerrainSegmentOrientation, nextTerrainSegmentOrientation, playerLocalRatio);
+            previousTerrainSegment.GetPlayerPositionAndOrientationAt(playerLocalRatio, angle, out position, out orientation);
         }
 
         public TerrainSegment GetTerrainSegmentAt(float z)

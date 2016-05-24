@@ -7,19 +7,23 @@ namespace Application.Model.Terrain.TerrainSegments
     {
         public TerrainSegmentPoint From;
         public TerrainSegmentPoint To;
+        public float PlayerHeight;
 
         public int Index { get; set; }
 
-        protected TerrainSegment(int index, TerrainSegmentPoint from, TerrainSegmentPoint to)
+        protected TerrainSegment(int index, TerrainSegmentPoint from, TerrainSegmentPoint to, float playerHeight)
         {
             Index = index;
             From = from;
             To = to;
+            PlayerHeight = playerHeight;
         }
 
-        public abstract void GetPlayerPositionAt(float k, out Vector3 position, out Quaternion orientation);
+        public abstract void GetCameraPositionAndOrientationAt(float location, float playerRotation, out Vector3 position, out Quaternion orientation);
 
-        public abstract void GetWallPositionAt(float k, Vector3 position);
+        public abstract void GetPlayerPositionAndOrientationAt(float location, float playerRotation, out Vector3 position, out Quaternion orientation);
+
+        public abstract void GetWallPositionAt(float rotation, Vector3 position);
 
         public override string ToString()
         {
