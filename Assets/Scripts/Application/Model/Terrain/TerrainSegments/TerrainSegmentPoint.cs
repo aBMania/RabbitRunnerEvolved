@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Application.Model.Terrain.TerrainSegments
 {
+    [Serializable]
     public class TerrainSegmentPoint
     {
         public Vector3 Position;

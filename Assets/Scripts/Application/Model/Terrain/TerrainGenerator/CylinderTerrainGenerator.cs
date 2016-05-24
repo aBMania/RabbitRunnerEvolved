@@ -1,5 +1,6 @@
 ﻿using Application.Model.Terrain.PathGenerator;
 using Application.Model.Terrain.TerrainSegments;
+using Attributes;
 using UnityEngine;
 
 namespace Application.Model.Terrain.TerrainGenerator
@@ -18,11 +19,14 @@ namespace Application.Model.Terrain.TerrainGenerator
         [SerializeField, Range(20, 500)]
         private int _initialLength = 200;
 
+        [ShowOnly, SerializeField]
         private int _currentIndex = 0;
 
+        [ShowOnly, SerializeField]
         private bool _autoUpdate;
 
-        private TerrainSegmentPoint _previousTerrainSemgnetPoint;
+        [ShowOnly, SerializeField]
+        private TerrainSegmentPoint _previousTerrainSegmentPoint;
 
         public IPathGenerator PathGenerator;
 
@@ -33,14 +37,14 @@ namespace Application.Model.Terrain.TerrainGenerator
 
         public TerrainSegment GenerateNextTerrainSegment()
         {
-            if (_previousTerrainSemgnetPoint == null)
-                _previousTerrainSemgnetPoint = PathGenerator.GetNextPoint(_currentIndex);
+            if (_previousTerrainSegmentPoint == null)
+                _previousTerrainSegmentPoint = PathGenerator.GetNextPoint(_currentIndex);
 
             var nextTerrainSegmentPoint = PathGenerator.GetNextPoint(_currentIndex);
 
-            var cylinderTerrainSegment = new CylinderTerrainSegment(_currentIndex, _previousTerrainSemgnetPoint, nextTerrainSegmentPoint);
+            var cylinderTerrainSegment = new CylinderTerrainSegment(_currentIndex, _previousTerrainSegmentPoint, nextTerrainSegmentPoint);
 
-            _previousTerrainSemgnetPoint = nextTerrainSegmentPoint;
+            _previousTerrainSegmentPoint = nextTerrainSegmentPoint;
 
             _currentIndex++;
 

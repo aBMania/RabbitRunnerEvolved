@@ -1,4 +1,5 @@
 ﻿using Application.Model.Terrain.TerrainSegments;
+using Attributes;
 using UnityEngine;
 
 namespace Application.Model.Terrain.PathGenerator
@@ -15,10 +16,14 @@ namespace Application.Model.Terrain.PathGenerator
 
         private int _pointIndex;
 
+        [ShowOnly, SerializeField]
         private Quaternion _globalFromRotation;
+
+        [ShowOnly, SerializeField]
         private Quaternion _globalToRotation;
 
-        private bool _firstPoint;
+        [ShowOnly, SerializeField]
+        private bool _firstPoint = true;
 
         private readonly Vector3 _startPosition = Vector3.zero;
         private readonly Quaternion _startDirection = Quaternion.LookRotation(Vector3.forward);
@@ -28,9 +33,9 @@ namespace Application.Model.Terrain.PathGenerator
         {
             var point = new TerrainSegmentPoint();
 
-            if (!_firstPoint)
+            if (_firstPoint)
             {
-                _firstPoint = true;
+                _firstPoint = false;
                 point.Position = _startPosition;
                 point.Rotation = _startDirection;
 

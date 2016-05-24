@@ -32,8 +32,8 @@ namespace Application.Controller.GameManager
         private void EndGame()
         {
             _isActive = false;
-            if (OnGameStart != null )
-                OnGameStart();
+            if (OnGameEnd != null )
+                OnGameEnd();
         }
     }
 }

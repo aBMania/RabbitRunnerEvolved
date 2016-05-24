@@ -126,6 +126,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75c894432b3e1c34faad8d84a8fa1847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _terrainDecayToPlayer: 100
+  _terrainMaxSize: 200
+  _currentIndex: 0
 --- !u!1 &825655924
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,6 +169,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Height: 0
+  _playerRotation: 0
+  speed: 10
+  _location: 0
+  _position: {x: 0, y: 0, z: 0}
+  _rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &829288014
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,6 +319,11 @@ MonoBehaviour:
   _radius: 5
   _nDiscretePoints: 12
   _initialLength: 200
+  _currentIndex: 0
+  _autoUpdate: 0
+  _previousTerrainSegmentPoint:
+    Position: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1092325439
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,6 +373,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1285061569}
+  - 114: {fileID: 1285061570}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -379,6 +393,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1092325441}
   m_RootOrder: 1
+--- !u!114 &1285061570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1285061568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc2a3dc447ccd254396ad116c318411f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Prefab: {fileID: 184206, guid: 95dd4aa6d54a96a42b1472f3c1859889, type: 2}
+  _playerInstance: {fileID: 0}
 --- !u!1 &1382590747
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,6 +505,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Height: 0
+  _playerRotation: 0
+  speed: 10
+  _location: 0
+  _position: {x: 0, y: 0, z: 0}
+  _rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1543979724
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,6 +549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c9e295a8385fa04788417b14a2c2657, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CylinderPrefab: {fileID: 11450184, guid: 8d4e8b55a3fb5c14da39a3c9f0d21dff, type: 2}
 --- !u!1 &1580699190
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,6 +713,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spacing: 2.5
   _rotationLength: 100
+  _globalFromRotation: {x: 0, y: 0, z: 0, w: 0}
+  _globalToRotation: {x: 0, y: 0, z: 0, w: 0}
+  _firstPoint: 1
 --- !u!1 &2075992316
 GameObject:
   m_ObjectHideFlags: 0

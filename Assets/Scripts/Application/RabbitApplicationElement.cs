@@ -1,5 +1,4 @@
-﻿using Application.Model.Terrain.TerrainSegments;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Application
 {

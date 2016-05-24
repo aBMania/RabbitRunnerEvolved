@@ -1,5 +1,4 @@
 ﻿using Application.Model.Terrain;
-using Application.View;
 
 namespace Application.Model
 {

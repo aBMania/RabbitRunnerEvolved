@@ -6,7 +6,7 @@ namespace Application.View.Terrain.Segment
     {
         private TerrainSegment _terrainSegmentModel;
 
-        protected void Init(TerrainSegment terrainSegment)
+        public virtual void Init(TerrainSegment terrainSegment)
         {
             _terrainSegmentModel = terrainSegment;
         }
