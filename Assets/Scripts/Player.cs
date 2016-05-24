@@ -1,4 +1,5 @@
-﻿using Application;
+﻿using System;
+using Application;
 using Application.Model.Terrain;
 using UnityEngine;
 
@@ -8,11 +9,11 @@ public class Player : RabbitApplicationElement {
 
     private float _location = 0;
 
-    private RabbitTerrain RabbitTerrain;
+    private TerrainModel _terrainModel;
 
-    public void Awake()
+    public void Start()
     {
-        RabbitTerrain = App.Model.Terrain;
+        _terrainModel = App.Model.TerrainModel;
     }
 
     [Range(0, 1)]
@@ -21,13 +22,20 @@ public class Player : RabbitApplicationElement {
     [Range(-1, 1)]
     private float playerRotation = 1;
 
-    void Update()
+    public void Update()
     {
         _location += speed * Time.deltaTime;
 
-        Vector3 position;
-        Quaternion rotation;
+        try
+        {
+            Quaternion rotation;
+            Vector3 position;
 
-        RabbitTerrain.GetPlayerPositionAndOrientationAt(_location, playerRotation, out position, out rotation);
+            _terrainModel.GetPlayerPositionAndOrientationAt(_location, playerRotation, out position, out rotation);
+        }
+        catch (Exception e)
+        {
+            //Debug.Log(String.Format("Exception {0}", e));
+        }
     }
 }

@@ -1,14 +1,20 @@
 ﻿using Application.Model.Terrain;
+using Application.View;
 
 namespace Application.Model
 {
     public class RabbitModel : RabbitApplicationElement
     {
-        private readonly RabbitTerrain _terrain = new RabbitTerrain();
+        private TerrainModel _terrainModel;
 
-        public RabbitTerrain Terrain
+        public void Awake()
         {
-            get { return _terrain; }
+            _terrainModel = GetComponent<TerrainModel>();
+        }
+
+        public TerrainModel TerrainModel
+        {
+            get { return _terrainModel; }
         }
     }
 }

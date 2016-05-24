@@ -26,9 +26,9 @@ namespace Application.Service.TerrainGenerator
 
         public IPathGenerator PathGenerator;
 
-        public void Awake()
+        public void Start()
         {
-            PathGenerator = App.Model.Terrain.PathGenerator;
+            PathGenerator = App.Service.DirectionnalPathGenerator;
         }
 
         public TerrainSegment GenerateNextTerrainSegment()
