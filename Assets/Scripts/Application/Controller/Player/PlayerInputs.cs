@@ -2,7 +2,7 @@
 
 namespace Application.Controller.Player
 {
-    public class PlayerController : RabbitApplicationElement
+    public class PlayerInputs : RabbitApplicationElement
     {
         public void Update()
         {

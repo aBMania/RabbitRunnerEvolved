@@ -173,6 +173,7 @@ MonoBehaviour:
   _position: {x: 0, y: 0, z: 0}
   _angle: 0
   _rotation: {x: 0, y: 0, z: 0, w: 0}
+  _angularSpeed: 600
 --- !u!1 &829288014
 GameObject:
   m_ObjectHideFlags: 0
@@ -505,6 +506,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 506562409926c7348a1f87d973e35513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1496602538
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1496602539}
+  - 114: {fileID: 1496602541}
+  - 114: {fileID: 1496602540}
+  m_Layer: 0
+  m_Name: Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1496602539
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1496602538}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1639082831}
+  m_RootOrder: 1
+--- !u!114 &1496602540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1496602538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8969bb7d6a552d47a7258d715ce2cb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1496602541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1496602538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 934c8069e04d1b743b75f29a03430cd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1543979724
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,6 +667,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1759339992}
+  - {fileID: 1496602539}
   m_Father: {fileID: 1580699191}
   m_RootOrder: 0
 --- !u!114 &1639082832

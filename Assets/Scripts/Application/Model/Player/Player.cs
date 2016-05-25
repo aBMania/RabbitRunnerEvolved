@@ -37,8 +37,6 @@ namespace Application.Model.Player
 
         public void Update()
         {
-            _location += speed * Time.deltaTime;
-
             try
             {
                 _terrainModel.GetPlayerPositionAndOrientationAt(_location, _angle, out _position, out _rotation);

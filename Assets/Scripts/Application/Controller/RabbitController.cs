@@ -9,9 +9,9 @@ namespace Application.Controller
             get { return GetComponentInChildren<GameManager.GameManager>(); }
         }
 
-        public PlayerController PlayerController
+        public PlayerInputs PlayerInputs
         {
-            get { return GetComponentInChildren<PlayerController>(); }
+            get { return GetComponentInChildren<PlayerInputs>(); }
         }
     }
 }
