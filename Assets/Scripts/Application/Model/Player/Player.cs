@@ -13,7 +13,8 @@ namespace Application.Model.Player
         [ShowOnly, SerializeField]
         private float speed = 10f;
 
-        [ShowOnly, SerializeField] private float _location;
+        [ShowOnly, SerializeField]
+        private float _location;
 
         [ShowOnly, SerializeField]
         private Vector3 _position;
@@ -24,6 +25,9 @@ namespace Application.Model.Player
         [ShowOnly, SerializeField]
         private Quaternion _rotation;
         private TerrainModel _terrainModel;
+
+        [ShowOnly, SerializeField]
+        private float _angularSpeed = 600;
 
         public void Awake()
         {
@@ -79,10 +83,15 @@ namespace Application.Model.Player
         }
 
         public float Angle
-
         {
             get { return _angle; }
             set { _angle = value; }
+        }
+
+        public float AngularSpeed
+        {
+            get { return _angularSpeed; }
+            set { _angularSpeed = value; }
         }
     }
 }
